@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 import {UserComponent} from './user.component';
+import { TerceroComponent } from './3tercero/tercero.component';
+import { OctavoComponent } from './8octavo/octavo.component';
+import { NovenoComponent } from './9noveno/noveno.component';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +23,17 @@ import {UserComponent} from './user.component';
     </div>
     <div class="divEditable" [contentEditable]="isEditable"></div>
     } 
+    <span><app-user name="Sergio"></app-user></span>
+    <app-noveno (addItemEvent)="addItem($event)" />
+    @defer (on viewport) {
+      <app-decimo />
+    }@placeholder {
+      <p>Future comments</p>
+    } @loading (minimum 2s){
+      <p>Loading comments...</p>
+    }
   `,
-  imports: [UserComponent],
+  imports: [TerceroComponent],
 })
 export class AppComponent {
 isUserLogin= true;
